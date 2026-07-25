@@ -1,4 +1,3 @@
-sdlghdavcdfdf
   const currentEl = document.getElementById('current');
   const historyEl = document.getElementById('history');
 
