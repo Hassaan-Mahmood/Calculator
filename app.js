@@ -1,3 +1,8 @@
+let currentDisplay = document.getElementById("current");
+
+let firstNumber = "";
+let operator = "";
+let secondNumer = "";
 
 function calculator(parameter) {
   if (
