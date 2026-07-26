@@ -80,7 +80,8 @@ body {
   text-align: right;
   overflow: hidden;
   position: relative;
-  min-height: clamp(84px, 22vw, 104px);
+  /* min-height: clamp(84px, 22vw, 104px); */
+  height: 120px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;

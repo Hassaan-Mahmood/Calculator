@@ -1,43 +1,85 @@
-let currentDisplay = document.getElementById("current");
+const currentDisplay = document.getElementById("current");
 
 let firstNumber = "";
 let operator = "";
 let secondNumber = "";
 
+function updateDisplay() {
+  let displayValue = firstNumber || "0";
+  if (operator) displayValue += operator;
+  if (secondNumber) displayValue += secondNumber;
+  currentDisplay.textContent = displayValue;
+}
+
 function calculator(parameter) {
+
+
+
   if (
     parameter === "+" ||
-    parameter === "-" ||
-    parameter === "x" ||
-    parameter === "/"
+    parameter === "−" ||
+    parameter === "×" ||
+    parameter === "÷"
   ) {
     operator = parameter;
     currentDisplay.innerHTML += operator;
   } 
   
-  // else if (parameter === "AC") {
-  //   currentDisplay.innerHTML = "";
-  // }
-  //  else if (parameter === "C") {
-  //   let string = currentDisplay.innerHTML;
-  //   string.substring(0, string-1);
-  // }
+  
+  
+  
+  else if (parameter === "AC") {
+    currentDisplay.innerHTML = "";
+  }
+  
+  
+   else if (parameter === "C") {
+    if (secondNumber) {
+      secondNumber = secondNumber.slice(0, -1);
+    } else if (operator) {
+      operator = "";
+    } else {
+      firstNumber = firstNumber.slice(0, -1);
+    }
+    currentDisplay.innerHTML = firstNumber + operator + secondNumber;
+  }
+  
+  
+  
   else {
     if (operator === "") {
-      firstNumber = parameter;
+      firstNumber += parameter;
     } else {
-      secondNumber = parameter;
+      secondNumber += parameter;
     }
     currentDisplay.innerHTML += parameter;
   }
 
-  console.log("FirstNumber : " + firstNumber);
-  console.log("Operator : " + operator);
-  console.log("SecondNumber : " + secondNumber);
-  
 
 }
 
 function equalOperation() {
+  firstNumber = Number(firstNumber);
+  secondNumber = Number(secondNumber);
 
+  let result;
+
+  if (operator === "+") {
+    result = firstNumber + secondNumber;
+  } else if (operator === "−") {
+    result = firstNumber - secondNumber;
+  } else if (operator === "×") {
+    result = firstNumber * secondNumber;
+  } else if (operator === "÷") {
+    result = firstNumber / secondNumber;
+  }
+
+  currentDisplay.innerHTML = result;
+
+  firstNumber = ""
+  operator = ""
+  secondNumber = ""
 }
+
+
+
