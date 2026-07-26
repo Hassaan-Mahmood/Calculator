@@ -1,8 +1,3 @@
-let currentDisplay = document.getElementById("current");
-
-let firstNum = "";
-let operator = "";
-let secondNum = "";
 
 function calculator(parameter) {
   if (
@@ -15,6 +10,7 @@ function calculator(parameter) {
     currentDisplay.innerHTML += operator;
   }
 }
+
 
 function equalOperation() {}
   
