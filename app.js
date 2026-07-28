@@ -4,16 +4,8 @@ let firstNumber = "";
 let operator = "";
 let secondNumber = "";
 
-function updateDisplay() {
-  let displayValue = firstNumber || "0";
-  if (operator) displayValue += operator;
-  if (secondNumber) displayValue += secondNumber;
-  currentDisplay.textContent = displayValue;
-}
 
 function calculator(parameter) {
-
-
 
   if (
     parameter === "+" ||
@@ -24,8 +16,6 @@ function calculator(parameter) {
     operator = parameter;
     currentDisplay.innerHTML += operator;
   } 
-  
-  
   
   
   else if (parameter === "AC") {
@@ -57,6 +47,8 @@ function calculator(parameter) {
 
 
 }
+
+
 
 function equalOperation() {
   firstNumber = Number(firstNumber);
