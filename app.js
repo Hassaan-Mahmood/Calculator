@@ -1,29 +1,23 @@
 const currentDisplay = document.getElementById("current");
 
-let firstNumber = "";
-let operator = "";
-let secondNumber = "";
-
+  firstNumber = "";
+  operator = "";
+  secondNumber = "";
 
 function calculator(parameter) {
-
   if (
     parameter === "+" ||
     parameter === "−" ||
     parameter === "×" ||
     parameter === "÷"
   ) {
-    operator = parameter;
-    currentDisplay.innerHTML += operator;
-  } 
-  
-  
-  else if (parameter === "AC") {
+    if (operator === "") {
+      operator = parameter;
+      currentDisplay.innerHTML += operator;
+    }
+  } else if (parameter === "AC") {
     currentDisplay.innerHTML = "";
-  }
-  
-  
-   else if (parameter === "C") {
+  } else if (parameter === "C") {
     if (secondNumber) {
       secondNumber = secondNumber.slice(0, -1);
     } else if (operator) {
@@ -32,11 +26,22 @@ function calculator(parameter) {
       firstNumber = firstNumber.slice(0, -1);
     }
     currentDisplay.innerHTML = firstNumber + operator + secondNumber;
-  }
+  } 
   
+
   
-  
-  else {
+  else if (
+    parameter === 0 ||
+    parameter === 1 ||
+    parameter === 2 ||
+    parameter === 3 ||
+    parameter === 4 ||
+    parameter === 5 ||
+    parameter === 6 ||
+    parameter === 7 ||
+    parameter === 8 ||
+    parameter === 9 
+  ){
     if (operator === "") {
       firstNumber += parameter;
     } else {
@@ -44,11 +49,7 @@ function calculator(parameter) {
     }
     currentDisplay.innerHTML += parameter;
   }
-
-
 }
-
-
 
 function equalOperation() {
   firstNumber = Number(firstNumber);
@@ -67,11 +68,13 @@ function equalOperation() {
   }
 
   currentDisplay.innerHTML = result;
-
-  firstNumber = ""
-  operator = ""
-  secondNumber = ""
+  updateDiplay()
 }
 
+function updateDiplay() {
+  firstNumber = "";
+  operator = "";
+  secondNumber = "";
+}
 
-
+// updateDiplay()
