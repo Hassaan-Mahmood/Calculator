@@ -77,4 +77,3 @@ function updateDiplay() {
   secondNumber = "";
 }
 
-// updateDiplay()
